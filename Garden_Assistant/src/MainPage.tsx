@@ -1,3 +1,4 @@
+import { Link } from "wasp/client/router";
 import "./Main.css";
 
 export const MainPage = () => {
@@ -12,9 +13,15 @@ export const MainPage = () => {
           their garden.
         </p>
         <div className='flex flex-row space-x-10 justify-center items-center'>
-          <div>Garden View Link</div>
-          <div>Calendar View Link</div>
-          <div>Journal View Link</div>
+          <div>
+            <Link to='/garden'>Garden View</Link>
+          </div>
+          <div>
+            <Link to='/calendar'>Calendar View</Link>
+          </div>
+          <div>
+            <Link to='/journal'>Journal View</Link>
+          </div>
         </div>
       </div>
     </div>
