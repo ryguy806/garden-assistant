@@ -13,10 +13,15 @@ export const MainPage = () => {
             The Garden Assistant is a web application that allows users to
             manage their garden.
           </p>
+          <div>Garden View Link</div>
+          <div>Calendar View Link</div>
+          <div>Journal View Link</div>
         </div>
-        <div>
-          <p>Built using Wasp:</p>
-          <img src={waspLogo} alt='wasp logo' />
+        <div className='flex flex-row'>
+          <p>
+            Built using Wasp:{" "}
+            <img src={waspLogo} alt='wasp logo' height={20} className='mt-3' />
+          </p>
         </div>
       </main>
     </div>
