@@ -8,7 +8,23 @@ app Garden_Assistant {
   },
 }
 
+//Routes
 route RootRoute { path: "/", to: MainPage }
 page MainPage {
   component: import { MainPage } from "@src/MainPage"
+}
+
+route CalendarRoute { path: "/calendar", to: CalendarPage }
+page CalendarPage {
+  component: import CalendarView  from "@src/pages/CalendarView"
+}
+
+route GardenRoute { path: "/garden", to: GardenPage }
+page GardenPage {
+  component: import GardenView  from "@src/pages/GardenView"
+}
+
+route JournalRoute { path: "/journal", to: JournalPage }
+page JournalPage {
+  component: import JournalView  from "@src/pages/JournalView"
 }
