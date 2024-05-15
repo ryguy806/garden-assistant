@@ -6,6 +6,14 @@ app Garden_Assistant {
   client: {
     rootComponent: import Layout from "@src/Layout/Layout",
   },
+  auth: {
+    userEntity: User,
+    methods: {
+      usernameAndPassword: {}
+    },
+    onAuthFailedRedirectTo: "/login",
+    onAuthSucceededRedirectTo: "/"
+  },
 }
 
 //Routes
@@ -28,3 +36,8 @@ route JournalRoute { path: "/journal", to: JournalPage }
 page JournalPage {
   component: import JournalView  from "@src/pages/JournalView"
 }
+
+//Entities
+entity User {=psl
+  id  Int @id @default(autoincrement())
+psl=}
