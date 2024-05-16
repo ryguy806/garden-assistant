@@ -1,7 +1,8 @@
 import { getAllJournalItems, useQuery } from "wasp/client/operations";
 import JournalList from "./JournalList";
+import { AuthUser } from "wasp/auth";
 
-const JournalView = () => {
+const JournalView = ({ user }: { user: AuthUser }) => {
   const { data: journalItems, isLoading, error } = useQuery(getAllJournalItems);
 
   if (isLoading) return <div>Loading...</div>;

@@ -62,7 +62,14 @@ entity JournalItem {=psl
   entry String
 psl=}
 
+//Queries
 query getAllJournalItems {
-  fn: import {getAllJournalItems} from "@src/operations/queries/journalqueries",
+  fn: import {getAllJournalItems} from "@src/operations/queries/journalQueries",
+  entities: [JournalItem]
+}
+
+//Actions
+action createJournalItem {
+  fn: import {createJournalItem} from "@src/operations/actions/journalActions",
   entities: [JournalItem]
 }
