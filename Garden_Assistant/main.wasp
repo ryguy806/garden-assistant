@@ -48,7 +48,7 @@ page GardenPage {
 route JournalRoute { path: "/journal", to: JournalPage }
 page JournalPage {
   authRequired: true,
-  component: import JournalView  from "@src/pages/JournalView"
+  component: import JournalView  from "@src/pages/Journal/JournalView"
 }
 
 //Entities
