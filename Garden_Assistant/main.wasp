@@ -36,7 +36,7 @@ page MainPage {
 route CalendarRoute { path: "/calendar", to: CalendarPage }
 page CalendarPage {
   authRequired: true,
-  component: import CalendarView  from "@src/pages/CalendarView"
+  component: import CalendarView  from "@src/pages/Calendar/CalendarView"
 }
 
 route GardenRoute { path: "/garden", to: GardenPage }
