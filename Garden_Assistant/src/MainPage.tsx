@@ -3,7 +3,7 @@ import "./Main.css";
 
 export const MainPage = () => {
   return (
-    <div className='container h-52 flex justify-center items-center space-y-7'>
+    <div className='container -m-36'>
       <div className='items-center'>
         <h1 className='text-xl font-bold'>Welcome to the Garden Assistant.</h1>
       </div>
