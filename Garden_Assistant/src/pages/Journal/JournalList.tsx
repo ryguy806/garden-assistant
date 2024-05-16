@@ -1,13 +1,19 @@
-import JournalItem from "./JournalItem";
+import { getAllJournalItems, useQuery } from "wasp/client/operations";
+import JournalItemView from "./JournalItem";
+import { JournalItem } from "wasp/entities";
 
-const JournalList = () => {
+const JournalList = ({ journalItems }: { journalItems: JournalItem[] }) => {
+  if (!journalItems?.length) return <div>No Entries</div>;
+
   return (
     <div>
       <ul className='list-disc list-inside'>
-        <li>This will be a list of the Journal Items.</li>
-        <li>
-          <JournalItem />
-        </li>
+        {journalItems &&
+          journalItems.map((journalItem: JournalItem) => (
+            <li key={journalItem.id}>
+              <JournalItemView journalItem={journalItem} />
+            </li>
+          ))}
       </ul>
     </div>
   );

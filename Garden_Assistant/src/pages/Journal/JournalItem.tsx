@@ -1,10 +1,13 @@
-const JournalItem = () => {
+import { JournalItem } from "wasp/entities";
+
+const JournalItemView = ({ journalItem }: { journalItem: JournalItem }) => {
+  const { date, entry } = journalItem;
   return (
     <div>
-      <div>Date will go here.</div>
-      <div>Note</div>
+      <div>{date.toString()}</div>
+      <div>{entry}</div>
     </div>
   );
 };
 
-export default JournalItem;
+export default JournalItemView;

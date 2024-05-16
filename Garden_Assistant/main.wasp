@@ -61,3 +61,8 @@ entity JournalItem {=psl
   date DateTime @default(now())
   entry String
 psl=}
+
+query getAllJournalItems {
+  fn: import {getAllJournalItems} from "@src/operations/queries/journalqueries",
+  entities: [JournalItem]
+}
