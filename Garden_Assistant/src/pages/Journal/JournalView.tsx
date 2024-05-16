@@ -10,12 +10,10 @@ const JournalView = ({ user }: { user: AuthUser }) => {
 
   return (
     <div className='mt-24'>
-      <div className='flex items-start m-5'>
+      <div className='flex items-center m-5 justify-center'>
         <h1 className='font-bold text-xl'>Garden Journal</h1>
       </div>
-      <div>
-        <JournalList journalItems={journalItems} />
-      </div>
+      <div>{journalItems && <JournalList journalItems={journalItems} />}</div>
     </div>
   );
 };
