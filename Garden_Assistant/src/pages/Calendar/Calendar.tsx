@@ -22,11 +22,11 @@ const Calendar = () => {
 
   return (
     <div className='w-[900px] h-[600px] flex flex-col'>
-      <div className='font-bold text-xl items-center'>
+      <div className='font-bold text-lg items-center'>
         {months[currentDate.getMonth()]}
       </div>
-      <div className='h-[100px] w-full flex items-center'>
-        <p>
+      <div className='h-auto w-full flex items-center'>
+        <p className='text-sm'>
           Today's Date:{" "}
           {months[currentDate.getMonth()] +
             " " +
@@ -36,7 +36,7 @@ const Calendar = () => {
         </p>
       </div>
       <div className='flex flex-grow flex-col w-100'>
-        <div className='h-[100px] w-full flex items-center justify-around'>
+        <div className='h-[70px] w-full flex items-center justify-around'>
           {weekdays.map((day: String, i: number) => {
             return (
               <div className='w-[100px] text-center' key={i}>
