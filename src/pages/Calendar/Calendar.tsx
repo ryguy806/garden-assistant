@@ -39,7 +39,7 @@ const Calendar = () => {
         <div className='h-[70px] w-full flex items-center justify-around'>
           {weekdays.map((day: String, i: number) => {
             return (
-              <div className='w-[100px] text-center' key={i}>
+              <div className='w-[100px] text-center text-sm' key={i}>
                 {day}
               </div>
             );

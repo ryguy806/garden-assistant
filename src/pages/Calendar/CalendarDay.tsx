@@ -34,7 +34,7 @@ const CalendarDays = ({ date, changeDate }: CalenderDayProps) => {
   }
 
   return (
-    <div className='w-full flex flex-grow flex-wrap justify-center box-border'>
+    <div className='w-full flex flex-grow flex-wrap justify-center box-border text-sm'>
       {currentDays.map((day, i) => {
         return (
           <div
