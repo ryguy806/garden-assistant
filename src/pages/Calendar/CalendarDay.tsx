@@ -38,7 +38,7 @@ const CalendarDays = ({ date, changeDate }: CalenderDayProps) => {
       {currentDays.map((day, i) => {
         return (
           <div
-            className='w-[125px] h-[75px] relative border-1 border-solid border-[#a6a6a6]'
+            className='w-[125px] h-[75px] relative border-2 border-solid border-black'
             key={i}
           >
             <p
