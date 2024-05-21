@@ -2,10 +2,9 @@ import { Dispatch, SetStateAction } from "react";
 
 interface CalenderDayProps {
   date: Date;
-  changeDate: Dispatch<SetStateAction<Date>>;
 }
 
-const CalendarDays = ({ date, changeDate }: CalenderDayProps) => {
+const CalendarDays = ({ date }: CalenderDayProps) => {
   const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
   const weekdayOfFirstDay = firstDayOfMonth.getDay();
   let currentDays = [];

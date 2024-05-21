@@ -46,7 +46,7 @@ const Calendar = () => {
           })}
         </div>
         <div>
-          <CalendarDays date={currentDate} changeDate={setCurrentDate} />
+          <CalendarDays date={currentDate} />
         </div>
       </div>
     </div>
