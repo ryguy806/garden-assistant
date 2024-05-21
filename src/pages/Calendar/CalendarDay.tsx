@@ -1,7 +1,8 @@
 import { useQuery } from "wasp/client/operations";
-import { CalendarItem } from "wasp/entities";
-import { getCalendarItemsByMonth } from "wasp/server/operations";
+import { getAllCalendarItems } from "wasp/client/operations";
 import star from "../..//assets/images/star.png";
+import { CalendarItem } from "wasp/entities";
+import { GetResult } from "@prisma/client/runtime";
 
 interface CalenderDayProps {
   date: Date;
@@ -11,12 +12,23 @@ const CalendarDays = ({ date }: CalenderDayProps) => {
   const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
   const weekdayOfFirstDay = firstDayOfMonth.getDay();
   let currentDays = [];
+  let incomingEvents: GetResult<
+    {
+      id: number;
+      title: string;
+      createdDate: Date;
+      eventDate: Date;
+      details: string;
+      userId: number;
+    },
+    never
+  >[] = [];
 
-  // const {
-  //   data: eventItems,
-  //   isLoading,
-  //   error,
-  // } = useQuery(getCalendarItemsByMonth);
+  const { data: eventItems, isLoading, error } = useQuery(getAllCalendarItems);
+
+  if (eventItems) {
+    incomingEvents = eventItems;
+  }
 
   for (let day = 0; day < 42; day++) {
     if (day === 0 && weekdayOfFirstDay === 0) {
@@ -35,20 +47,21 @@ const CalendarDays = ({ date }: CalenderDayProps) => {
       month: firstDayOfMonth.getMonth(),
       number: firstDayOfMonth.getDate(),
       selected: firstDayOfMonth.toDateString() === date.toDateString(),
-      hasTasks: true,
-      //   eventItems?.filter(
-      //     (item: CalendarItem) =>
-      //       item.eventDate.getMonth() === firstDayOfMonth.getMonth() &&
-      //       item.eventDate.getFullYear() === firstDayOfMonth.getFullYear()
-      //   ).length > 0,
+      hasTasks:
+        incomingEvents.filter(
+          (items) =>
+            items.eventDate.getDate() === day &&
+            items.eventDate.getMonth() === firstDayOfMonth.getMonth() &&
+            items.eventDate.getFullYear() === firstDayOfMonth.getFullYear()
+        ).length > 0,
       year: firstDayOfMonth.getFullYear(),
     };
 
     currentDays.push(calendarDay);
   }
 
-  // if (isLoading) return <div>Loading...</div>;
-  // if (error) return <div>Error: {error.message}</div>;
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
 
   return (
     <div className='w-full flex flex-grow flex-wrap justify-center box-border text-sm'>
