@@ -43,8 +43,8 @@ const CalendarDays = ({ date, changeDate }: CalenderDayProps) => {
           >
             <p
               className={`absolute right-[10px] text-[#a6a6a6] ${
-                day.selected ? "text-[#cc0000]" : ""
-              } ${day.currentMonth ? "text-black" : ""}`}
+                day.selected ? "text-red-500" : ""
+              } ${day.currentMonth ? "text-black" : ""} `}
             >
               {day.number}
             </p>
