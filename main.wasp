@@ -39,6 +39,12 @@ page CalendarPage {
   component: import CalendarView  from "@src/pages/Calendar/CalendarView"
 }
 
+route CalendarDayViewRoute { path: "/calendar/:day", to: CalendarDayViewPage}
+page CalendarDayViewPage {
+  authRequired: true,
+  component: import CalendarDayView from "@src/pages/Calendar/CalendarDayView"
+}
+
 route GardenRoute { path: "/garden", to: GardenPage }
 page GardenPage {
   authRequired: true,
