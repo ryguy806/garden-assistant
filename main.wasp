@@ -91,6 +91,11 @@ query getCalendarItemsByMonth {
   entities: [CalendarItem]
 }
 
+query getCalendarItemsByDay {
+  fn: import {getCalendarItemsByDay} from "@src/operations/queries/calendarQueries",
+  entities: [CalendarItem]
+}
+
 //Actions
 action createJournalItem {
   fn: import {createJournalItem} from "@src/operations/actions/journalActions",
