@@ -31,17 +31,3 @@ export const getCalendarItemsByMonth: GetCalendarItemsByMonth<
     orderBy: { eventDate: "asc" },
   });
 };
-
-export const getCalendarItemsByDay: GetCalendarItemsByMonth<
-  Pick<CalendarItem, "eventDate">
-> = async (args, context) => {
-  if (!context.user) {
-    throw new HttpError(401, "Access denied!");
-  }
-  const currentDate = new Date();
-  return context.entities.CalendarItem.findMany({
-    where: { user: { id: context.user.id } },
-    select: { eventDate: args.eventDate.getDate() === currentDate.getDate() },
-    orderBy: { eventDate: "asc" },
-  });
-};
