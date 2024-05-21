@@ -99,3 +99,8 @@ action createJournalItem {
   fn: import {createJournalItem} from "@src/operations/actions/journalActions",
   entities: [JournalItem]
 }
+
+action createCalendarItem{
+  fn: import {createCalendarItem} from "@src/operations/actions/calendarActions",
+  entities: [CalendarItem]
+}
