@@ -1,7 +1,7 @@
-import { Dispatch, SetStateAction } from "react";
 import { useQuery } from "wasp/client/operations";
 import { CalendarItem } from "wasp/entities";
 import { getCalendarItemsByMonth } from "wasp/server/operations";
+import star from "../..//assets/images/star.png";
 
 interface CalenderDayProps {
   date: Date;
@@ -12,11 +12,11 @@ const CalendarDays = ({ date }: CalenderDayProps) => {
   const weekdayOfFirstDay = firstDayOfMonth.getDay();
   let currentDays = [];
 
-  const {
-    data: eventItems,
-    isLoading,
-    error,
-  } = useQuery(getCalendarItemsByMonth);
+  // const {
+  //   data: eventItems,
+  //   isLoading,
+  //   error,
+  // } = useQuery(getCalendarItemsByMonth);
 
   for (let day = 0; day < 42; day++) {
     if (day === 0 && weekdayOfFirstDay === 0) {
@@ -35,20 +35,20 @@ const CalendarDays = ({ date }: CalenderDayProps) => {
       month: firstDayOfMonth.getMonth(),
       number: firstDayOfMonth.getDate(),
       selected: firstDayOfMonth.toDateString() === date.toDateString(),
-      hasTasks:
-        eventItems?.filter(
-          (item: CalendarItem) =>
-            item.eventDate.getMonth() === firstDayOfMonth.getMonth() &&
-            item.eventDate.getFullYear() === firstDayOfMonth.getFullYear()
-        ).length > 0,
+      hasTasks: true,
+      //   eventItems?.filter(
+      //     (item: CalendarItem) =>
+      //       item.eventDate.getMonth() === firstDayOfMonth.getMonth() &&
+      //       item.eventDate.getFullYear() === firstDayOfMonth.getFullYear()
+      //   ).length > 0,
       year: firstDayOfMonth.getFullYear(),
     };
 
     currentDays.push(calendarDay);
   }
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+  // if (isLoading) return <div>Loading...</div>;
+  // if (error) return <div>Error: {error.message}</div>;
 
   return (
     <div className='w-full flex flex-grow flex-wrap justify-center box-border text-sm'>
@@ -65,6 +65,11 @@ const CalendarDays = ({ date }: CalenderDayProps) => {
             >
               {day.number}
             </p>
+            {day.hasTasks ? (
+              <img src={star} alt='star' className='h-1/2 w-auto' />
+            ) : (
+              <span />
+            )}
           </div>
         );
       })}
