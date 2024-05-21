@@ -1,4 +1,3 @@
-import { useState } from "react";
 import CalendarDays from "./CalendarDay";
 
 const Calendar = () => {
@@ -18,7 +17,7 @@ const Calendar = () => {
     "December",
   ];
 
-  const [currentDate, setCurrentDate] = useState(new Date());
+  const currentDate = new Date(Date.now());
 
   return (
     <div className='w-[900px] h-[600px] flex flex-col'>
