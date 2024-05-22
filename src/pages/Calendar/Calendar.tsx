@@ -47,6 +47,12 @@ const Calendar = () => {
       </div>
       <div className='flex flex-grow flex-col w-100'>
         <div className='h-[70px] w-full flex items-center justify-around'>
+          <button
+            className='w-[100px] h-[40px] bg-[#a9a9a9] text-white'
+            onClick={handleMonthChangePrev}
+          >
+            Prev
+          </button>
           {weekdays.map((day: String, i: number) => {
             return (
               <div className='w-[100px] text-center text-sm' key={i}>
@@ -54,6 +60,12 @@ const Calendar = () => {
               </div>
             );
           })}
+          <button
+            className='w-[100px] h-[40px] bg-[#a9a9a9] text-white'
+            onClick={handleMonthChangeNext}
+          >
+            Next
+          </button>
         </div>
         <div>
           <CalendarDays date={dateToUse} />
