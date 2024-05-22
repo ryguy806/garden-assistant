@@ -23,17 +23,17 @@ const Calendar = () => {
   const [dateToUse, setDateToUse] = useState(currentDate);
 
   const handleMonthChangeNext = () => {
-    setDateToUse(new Date(currentDate.getMonth() + 1));
+    setDateToUse(new Date(dateToUse.setMonth(dateToUse.getMonth() + 1)));
   };
 
   const handleMonthChangePrev = () => {
-    setDateToUse(new Date(currentDate.getMonth() - 1));
+    setDateToUse(new Date(dateToUse.setMonth(dateToUse.getMonth() - 1)));
   };
 
   return (
     <div className='w-[900px] h-[600px] flex flex-col'>
       <div className='font-bold text-lg items-center'>
-        {months[currentDate.getMonth()]}
+        {months[dateToUse.getMonth()]} {dateToUse.getFullYear()}
       </div>
       <div className='h-auto w-full flex items-center'>
         <p className='text-sm'>
