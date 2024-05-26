@@ -1,5 +1,6 @@
 import { useState } from "react";
 import CalendarDays from "./CalendarDay";
+import { Link } from "wasp/client/router";
 
 const Calendar = () => {
   const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -69,6 +70,9 @@ const Calendar = () => {
         </div>
         <div>
           <CalendarDays date={dateToUse} />
+        </div>
+        <div>
+          <Link to='/calendar/new'>Add New Event</Link>
         </div>
       </div>
     </div>

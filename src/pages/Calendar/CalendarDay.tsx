@@ -3,6 +3,7 @@ import { getAllCalendarItems } from "wasp/client/operations";
 import star from "../..//assets/images/star.png";
 import { CalendarItem } from "wasp/entities";
 import { GetResult } from "@prisma/client/runtime";
+import { Link } from "wasp/client/router";
 
 interface CalenderDayProps {
   date: Date;
@@ -67,7 +68,9 @@ const CalendarDays = ({ date }: CalenderDayProps) => {
     <div className='w-full flex flex-grow flex-wrap justify-center box-border text-sm'>
       {currentDays.map((day, i) => {
         return (
-          <div
+          <Link
+            to={`/calendar/:day`}
+            params={{ day: day.date.toDateString() }}
             className='w-[125px] h-[65px] relative border-2 border-solid border-black'
             key={i}
           >
@@ -83,7 +86,7 @@ const CalendarDays = ({ date }: CalenderDayProps) => {
             ) : (
               <span />
             )}
-          </div>
+          </Link>
         );
       })}
     </div>
