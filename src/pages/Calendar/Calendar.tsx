@@ -71,7 +71,7 @@ const Calendar = () => {
         <div>
           <CalendarDays date={dateToUse} />
         </div>
-        <div>
+        <div className='border-2 p-2 bg-green-400 w-40 mt-3'>
           <Link to='/calendar/new'>Add New Event</Link>
         </div>
       </div>
