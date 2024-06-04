@@ -6,9 +6,6 @@ const JournalItemView = ({ journalItem }: { journalItem: JournalItem }) => {
 
   const fixedEntry = toSentenceCase(entry).replaceAll(" i ", " I ");
 
-  console.log("Entry JI", entry);
-  console.log("Entry JI", fixedEntry);
-
   return (
     <div className='w-full'>
       <div>{date.toDateString()}</div>
