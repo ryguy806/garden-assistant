@@ -12,7 +12,7 @@ const JournalList = ({ journalItems }: { journalItems: JournalItem[] }) => {
             journalItems.map((journalItem: JournalItem) => (
               <li
                 key={journalItem.id}
-                className='border-b-[1px] border-dotted border-[#ccc]h-auto p-3 capitalize'
+                className='border-b-[1px] border-dotted border-[#ccc]h-auto p-3'
               >
                 <JournalItemView journalItem={journalItem} />
               </li>
