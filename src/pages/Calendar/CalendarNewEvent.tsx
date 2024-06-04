@@ -5,6 +5,7 @@ const CalendarNewEvent = () => {
     preventDefault: () => void;
     target: any;
   }) => {
+    console.log(event.target);
     event.preventDefault();
     try {
       const target = event.target;
@@ -27,7 +28,6 @@ const CalendarNewEvent = () => {
             type='text'
             id='title'
             name='title'
-            defaultValue=''
             className='border-2 ml-5'
           />
         </label>
@@ -38,12 +38,7 @@ const CalendarNewEvent = () => {
 
         <label htmlFor='details' className='underline'>
           Details:{" "}
-          <textarea
-            id='details'
-            name='details'
-            defaultValue=''
-            className='border-2 ml-5'
-          />
+          <textarea id='details' name='details' className='border-2 ml-5' />
         </label>
 
         <button type='submit' className='border-2 bg-green-300'>
